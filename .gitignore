@@ -39,3 +39,7 @@ sysinfo.txt
 # Rider
 .idea/
 
+# Ignore temporaries from GameCI
+/[Aa]rtifacts/
+/[Cc]odeCoverage/
+
