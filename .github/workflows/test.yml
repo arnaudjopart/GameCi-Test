@@ -1,4 +1,4 @@
-name: Acquire activation file
+name: Test Scripts
 on:
   workflow_dispatch: {}
 jobs:
