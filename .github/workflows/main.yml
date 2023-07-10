@@ -3,7 +3,7 @@ name: Actions 😎
 on: [push, pull_request]
 
 jobs:
-  build:
+  Checkout:
     name: Build my project ✨
     runs-on: ubuntu-latest
     steps:
@@ -35,14 +35,18 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
-
+  TestAnBuild:
+    needs: Checkout
+    name: Test Project and Build
+    runs-on: Ubuntu-latest
+    steps:
       # Test
-      #- name: Run tests
-       # uses: game-ci/unity-test-runner@v2
-        #env:
-         # UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        #with:
-         # githubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        env:
+         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+         githubToken: ${{ secrets.GITHUB_TOKEN }}
         
       # Build
       - name: Build project
