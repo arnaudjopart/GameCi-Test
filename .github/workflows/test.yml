@@ -10,13 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: "Run Tests"
+      - name: Run Tests
         uses: game-ci/unity-test-runner@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          
-      - uses: game-ci/unity-test-runner@v2
-        with:
-            githubToken: ${{ secrets.GITHUB_TOKEN }}
